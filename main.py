@@ -22,7 +22,7 @@ from secrets import wufoo_key
 from requests.auth import HTTPBasicAuth
 
 def get_wufoo_data()->dict:
-    url = "https://comp490project.wufoo.com/forms/2023-ultimate-frisbee-tournament/json"
+    url = "https://comp490project.wufoo.com/forms/2023-ultimate-frisbee-tournament/entries/json"
     response = requests.get(url, auth=HTTPBasicAuth(wufoo_key,'pass'))
     if response.status_code != 200:
         print(f"Failed to get data, response code:{response.status_code} and error message:{response.reason}")
