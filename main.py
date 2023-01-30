@@ -6,7 +6,7 @@ username = 'G0QW-6YXP-H7LX-TN6S'
 password = 'comp490'
 
 password_manager = urllib2.HTTPPasswordMgrWithDefaultRealm()
-
+password_manager.addpassword(None, base_url, username, password)
 handler = urllib2.HTTPBasicAUthHandler(password_manager)
 opener = urllib2.build_opener(handler)
 urllib2.install_opener(opener)
