@@ -3,6 +3,8 @@ import requests
 from secrets import wufoo_key
 from requests.auth import HTTPBasicAuth
 import json
+import sqlite3
+
 
 def get_wufoo_data() -> dict:
     url = "https://comp490project.wufoo.com/api/v3/forms/2023-ultimate-frisbee-tournament/entries/json"
@@ -21,6 +23,13 @@ def file_save(data):
     with open("data.txt", "w") as file:
         file.write(json.dumps(data))
 
+
+conn = sqlite3.connect('cube_database.sqlite')
+cursor = conn.cursor()
+print("Open database successfully")
+
+conn.commit()
+conn.close()
 
 def main():
     alldata = get_wufoo_data()
